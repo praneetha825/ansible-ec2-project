@@ -1,0 +1,53 @@
+# 🔐 Secrets and credentials
+ansible-ec2-project/group_vars/all/all.yaml
+ansible-ec2-project/pandu-ec2.pem
+ansible-secure/vault.pass
+
+# ⛔ Ansible Vault temp swap files
+ansible-ec2-project/.gitignore.swp
+
+# 📦 AWS CLI install files (optional if not needed in repo)
+ansible-ec2-project/aws/
+ansible-ec2-project/awscliiv2.zip
+
+# 🧪 Python virtual environments
+ansible-env/
+myenv/
+
+# 🧾 Inventory (optional — if dynamic or personal)
+ansible-ec2-project/inventory.ini
+
+# 💾 Shell/user/system config files
+.bash_history
+.viminfo
+.lesshst
+.sudo_as_admin_succ*
+.motd_shown
+
+# 🧙‍♂️ VS Code server and config
+.vscode-server/
+
+# 🔐 SSH keys (never commit)
+.ssh/
+
+# 🐍 Pycache and build files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📝 Swap, backup and retry files
+*.swp
+*.swo
+*.bak
+*.retry
+
+# 💻 OS-specific files
+.DS_Store
+Thumbs.db
+
+# 📦 Compiled or zipped files
+*.zip
+*.tar
+*.tar.gz
+pandu-ec2.pem
