@@ -1,0 +1,36 @@
+---
+- name: Launch multiple EC2 instances using loop
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  vars:
+    ansible_python_interpreter: "/home/adminpraneetha/ansible-env/bin/python"
+
+  vars_files:
+    - group_vars/all/pass.yml
+
+  tasks:
+    - name: Launch EC2 instances using loop
+      amazon.aws.ec2_instance:
+        name: "{{ item.name }}"
+        key_name: "{{ key_name }}"
+        instance_type: t2.micro
+        image_id: "{{ item.image_id }}"
+        region: "{{ region }}"
+        count: "{{ item.count }}"
+        security_group: "{{ security_group }}"
+        vpc_subnet_id: "{{ item.subnet_id }}"
+        network:
+          assign_public_ip: true
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        wait: yes
+      loop:
+        - { name: "ubuntu-server-1", image_id: "ami-06a644026f43160a5", count: 1, subnet_id: "subnet-0dedd2630c0e09d6b" }
+        - { name: "ubuntu-server-2", image_id: "ami-06a644026f43160a5", count: 1, subnet_id: "subnet-0dedd2630c0e09d6b" }
+        - { name: "amazon-linux", image_id: "ami-0f5ee92e2d63afc18", count: 1, subnet_id: "subnet-04125e5fea0ff0abc" }
+
+    - name: Show EC2 instance info
+      debug:
+        var: ec2

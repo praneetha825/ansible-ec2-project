@@ -1,0 +1,17 @@
+region: ap-south-1
+key_name: pandu-ec2
+security_group: sg-097fa12a8700886f2
+instance_type: t2.micro
+
+instances:
+  - name: aws-linux
+    ami: ami-03bb6d83c60fc5f7c
+    subnet_id: subnet-04125e5fea0ff0abc
+
+  - name: ubuntu-1
+    ami: ami-0f58b397bc5c1f2e8
+    subnet_id: subnet-0dedd2630c0e09d6b
+
+  - name: ubuntu-2
+    ami: ami-0f58b397bc5c1f2e8
+    subnet_id: subnet-0e234efd269cca96b
